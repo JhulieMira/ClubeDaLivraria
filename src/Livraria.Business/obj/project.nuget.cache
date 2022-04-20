@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "D49Ehxgb+s990g89ZqcxqvhlHtyi6tchd69YpU2Zy3WV3r2ZAlGx4HwI8jTalis3DrpV4dOWs36Od1wjznMtOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jhuli\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\jhuli\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Livraria.Business/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "10.4.0",
+          "JetBrains.Annotations": "2021.3.0"
+        },
+        "runtime": {
+          "Livraria.Business.dll": {}
+        }
+      },
+      "FluentValidation/10.4.0": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "10.4.0.0"
+          }
+        }
+      },
+      "JetBrains.Annotations/2021.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "2021.3.0.0",
+            "fileVersion": "2021.3.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Livraria.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FluentValidation/10.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rVI1b5L3pq3layrRKIo3N7AT3PWey8ocPZhf6zeHYf6LBBvnP1KzW3bm7KmeazOWW8m1KXMD+shfviIcKSgQ0g==",
+      "path": "fluentvalidation/10.4.0",
+      "hashPath": "fluentvalidation.10.4.0.nupkg.sha512"
+    },
+    "JetBrains.Annotations/2021.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ddxjs5RRjf+c8m9m++WvhW1lz1bqNhsTjWvCLbQN9bvKbkJeR9MhtfNwKgBRRdG2yLHcXFr5Lf7fsvvkiPaDRg==",
+      "path": "jetbrains.annotations/2021.3.0",
+      "hashPath": "jetbrains.annotations.2021.3.0.nupkg.sha512"
+    }
+  }
+}

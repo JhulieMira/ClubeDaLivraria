@@ -1,0 +1,148 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "FluentValidation/10.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
+      "JetBrains.Annotations/2021.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FluentValidation/10.4.0": {
+      "sha512": "rVI1b5L3pq3layrRKIo3N7AT3PWey8ocPZhf6zeHYf6LBBvnP1KzW3bm7KmeazOWW8m1KXMD+shfviIcKSgQ0g==",
+      "type": "package",
+      "path": "fluentvalidation/10.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.10.4.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "JetBrains.Annotations/2021.3.0": {
+      "sha512": "Ddxjs5RRjf+c8m9m++WvhW1lz1bqNhsTjWvCLbQN9bvKbkJeR9MhtfNwKgBRRdG2yLHcXFr5Lf7fsvvkiPaDRg==",
+      "type": "package",
+      "path": "jetbrains.annotations/2021.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "jetbrains.annotations.2021.3.0.nupkg.sha512",
+        "jetbrains.annotations.nuspec",
+        "lib/net20/JetBrains.Annotations.dll",
+        "lib/net20/JetBrains.Annotations.xml",
+        "lib/netstandard1.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard1.0/JetBrains.Annotations.dll",
+        "lib/netstandard1.0/JetBrains.Annotations.xml",
+        "lib/netstandard2.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard2.0/JetBrains.Annotations.dll",
+        "lib/netstandard2.0/JetBrains.Annotations.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "FluentValidation >= 10.4.0",
+      "JetBrains.Annotations >= 2021.3.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\jhuli\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
+      "projectName": "Livraria.Business",
+      "projectPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
+      "packagesPath": "C:\\Users\\jhuli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\jhuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[10.4.0, )"
+          },
+          "JetBrains.Annotations": {
+            "target": "Package",
+            "version": "[2021.3.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
