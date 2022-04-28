@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj": {}
+    "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj": {
+    "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
+        "projectUniqueName": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
         "projectName": "Livraria.Business",
-        "projectPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
+        "projectPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\Livraria.Business.csproj",
         "packagesPath": "C:\\Users\\jhuli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\obj\\",
+        "outputPath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,0 +1,15 @@
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\bin\Release\net6.0\Livraria.Data.deps.json
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\bin\Release\net6.0\Livraria.Data.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\bin\Release\net6.0\Livraria.Data.pdb
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\bin\Release\net6.0\Livraria.Business.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\bin\Release\net6.0\Livraria.Business.pdb
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.csproj.AssemblyReference.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.AssemblyInfoInputs.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.AssemblyInfo.cs
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.csproj.CoreCompileInputs.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.csproj.CopyComplete
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\refint\Livraria.Data.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\Livraria.Data.pdb
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Data\obj\Release\net6.0\ref\Livraria.Data.dll

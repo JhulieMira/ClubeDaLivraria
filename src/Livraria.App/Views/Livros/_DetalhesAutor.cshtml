@@ -1,0 +1,34 @@
+﻿@model Livraria.App.ViewModels.AutorViewModel
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>
+                <h4>Autor</h4>
+            </th>
+            <th></th>
+        </tr>
+        
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                    <img src="~/imagens/@Model.Imagem" alt="@Model.Imagem" style="width: 70px; height: 100px" />
+                </td>
+      
+                <td>
+                    <input type="hidden" asp-for="Id"/>
+                    <a asp-controller="Autores" asp-action="Details" asp-route-id="@Model.Id">
+                    @Html.DisplayFor(modelItem => Model.Nome)
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-controller="Autores" asp-action="Details" asp-route-id="@Model.Id"><i class="fa-solid fa-search"></i></a>
+                    <a class="btn btn-warning" asp-controller="Autores" asp-action="Edit" asp-route-id="@Model.Id"><i class="fa-solid fa-pencil-alt"></i></a>
+                    <a class="btn btn-danger" asp-controller="Autores" asp-action="Delete" asp-route-id="@Model.Id"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

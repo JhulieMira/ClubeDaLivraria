@@ -10,3 +10,15 @@ C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\Programs\ClubeDaLivraria\src
 C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\refint\Livraria.Business.dll
 C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.pdb
 C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\ref\Livraria.Business.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\bin\Debug\net6.0\Livraria.Business.deps.json
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\bin\Debug\net6.0\Livraria.Business.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\bin\Debug\net6.0\Livraria.Business.pdb
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.csproj.AssemblyReference.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.AssemblyInfoInputs.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.AssemblyInfo.cs
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.csproj.CoreCompileInputs.cache
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\refint\Livraria.Business.dll
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\Livraria.Business.pdb
+C:\Users\jhuli\Documents\Estudo\C#\desenvolvedor.io\MVC\Programs\ClubeDaLivraria\src\Livraria.Business\obj\Debug\net6.0\ref\Livraria.Business.dll

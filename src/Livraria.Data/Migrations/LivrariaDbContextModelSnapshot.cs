@@ -19,6 +19,29 @@ namespace Livraria.Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Livraria.Business.Models.Autor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<string>("Imagem")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Autores", (string)null);
+                });
+
             modelBuilder.Entity("Livraria.Business.Models.Endereco", b =>
                 {
                     b.Property<Guid>("Id")
@@ -97,6 +120,9 @@ namespace Livraria.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<Guid>("AutorId")
+                        .HasColumnType("char(36)");
+
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime");
 
@@ -120,6 +146,8 @@ namespace Livraria.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AutorId");
+
                     b.HasIndex("FornecedorId");
 
                     b.ToTable("Livros", (string)null);
@@ -137,12 +165,24 @@ namespace Livraria.Data.Migrations
 
             modelBuilder.Entity("Livraria.Business.Models.Livro", b =>
                 {
+                    b.HasOne("Livraria.Business.Models.Autor", "Autor")
+                        .WithMany("Livros")
+                        .HasForeignKey("AutorId")
+                        .IsRequired();
+
                     b.HasOne("Livraria.Business.Models.Fornecedor", "Fornecedor")
                         .WithMany("Livros")
                         .HasForeignKey("FornecedorId")
                         .IsRequired();
 
+                    b.Navigation("Autor");
+
                     b.Navigation("Fornecedor");
+                });
+
+            modelBuilder.Entity("Livraria.Business.Models.Autor", b =>
+                {
+                    b.Navigation("Livros");
                 });
 
             modelBuilder.Entity("Livraria.Business.Models.Fornecedor", b =>

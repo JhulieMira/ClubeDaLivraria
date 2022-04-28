@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zd6ArqCJ9ZM/4JC+s9lKVj5NGU7QBUmtpxqTlXDGaugDWP40HYlKAgZ5ASmIImli+PX9ye6f/XiVuRleZIjoxw==",
+  "dgSpecHash": "4PnmUD/dFwtf8oxQp9RRJh0bz4eUsGl1pONLn67TfeOy+dhVW2EGXo5sTL5K/o52qtDyWZL5fYqZbhBMyYnpew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\Programs\\ClubeDaLivraria\\src\\Livraria.Data\\Livraria.Data.csproj",
+  "projectFilePath": "C:\\Users\\jhuli\\Documents\\Estudo\\C#\\desenvolvedor.io\\MVC\\Programs\\ClubeDaLivraria\\src\\Livraria.Data\\Livraria.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jhuli\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\jhuli\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",

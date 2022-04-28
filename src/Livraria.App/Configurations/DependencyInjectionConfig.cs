@@ -13,15 +13,17 @@ namespace Livraria.App.Configurations
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
             services.AddScoped<LivrariaDbContext>();
-            services.AddScoped<ILivroRepository, LivroRepository>();          //adicionando o acesso a dados
+            services.AddScoped<ILivroRepository, LivroRepository>();         
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
+            services.AddScoped<IAutorRepository, AutorRepository>();
 
             services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidationAttributeAdapterProvider>();
 
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IFornecedorService, FornecedorService>();
             services.AddScoped<ILivroService, LivroService>();
+            services.AddScoped<IAutorService, AutorService>();
 
             return services;
         }

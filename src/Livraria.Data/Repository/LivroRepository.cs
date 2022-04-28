@@ -2,11 +2,6 @@
 using Livraria.Business.Models;
 using Livraria.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Livraria.Data.Repository
 {
@@ -14,17 +9,25 @@ namespace Livraria.Data.Repository
     {
         public LivroRepository(LivrariaDbContext context) : base(context){ }
 
-        public async Task<Livro> ObterLivroFornecedor(Guid id)
+        public async Task<Livro> ObterLivroAutorEFornecedor(Guid id)
         {
             return await Db.Livros.AsNoTracking()
-                .Include(f => f.Fornecedor) //estou indo em produtos, fazendo um inner join com o fornecedor, onde o produto tem esse id
+                .Include(f => f.Fornecedor)
+                .Include(a => a.Autor)
                 .FirstOrDefaultAsync(predicate: p => p.Id == id);
         }
 
-        public async Task<IEnumerable<Livro>> ObterLivrosFornecedores()
+        public async Task<IEnumerable<Livro>> ObterLivrosAutoresEFornecedores()
         {
-            return await Db.Livros.AsNoTracking().Include(f => f.Fornecedor) //estou indo em produtos, fazendo um inner join com o fornecedor, onde o produto tem esse id
+            return await Db.Livros.AsNoTracking()
+                .Include(f => f.Fornecedor)
+                .Include(a => a.Autor)
                 .OrderBy(p => p.Nome).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Livro>> ObterLivrosPorAutor(Guid autorId)
+        {
+            return await Buscar(a => a.AutorId == autorId);
         }
 
         public async Task<IEnumerable<Livro>> ObterLivrosPorFornecedor(Guid fornecedorId)

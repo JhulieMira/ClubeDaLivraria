@@ -28,9 +28,9 @@ namespace Livraria.App.Extensions
 
             var temAcesso = CustomAuthorization.ValidarClaimUsuario(_contextAccessor.HttpContext, IdentityClaimName, IdentityClaimValue);
 
-            if (temAcesso) return; //se for false, nao geramos a tag, ela nao sera renderizada como elemento no browser
+            if (temAcesso) return; 
 
-            output.SuppressOutput(); //nao vai ter output (nao ira gerar o elemento0
+            output.SuppressOutput(); 
         }
     }
 
@@ -54,7 +54,7 @@ namespace Livraria.App.Extensions
             if (output == null)
                 throw new ArgumentNullException(nameof(output));
 
-            var action = _contextAccessor.HttpContext.GetRouteData().Values["action"].ToString(); //assim que pega o nome da action dentro de um request
+            var action = _contextAccessor.HttpContext.GetRouteData().Values["action"].ToString();
 
             if (ActionName.Contains(action)) return;
 

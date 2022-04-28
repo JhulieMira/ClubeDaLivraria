@@ -9,7 +9,7 @@ namespace Livraria.Data.Repository
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity , new()
     {
         protected readonly LivrariaDbContext Db;
-        protected readonly DbSet<TEntity> DbSet; //"Atalho" para tornar o codigo menos verboso
+        protected readonly DbSet<TEntity> DbSet; 
 
         public Repository(LivrariaDbContext db)
         {

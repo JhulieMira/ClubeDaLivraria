@@ -10,6 +10,9 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Fornecedor)
             </th>
             <th>
@@ -22,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-                @foreach (var item in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -32,7 +35,12 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Fornecedor.Documento)
+                    <a asp-controller="Autores" asp-action="Details" asp-route-id="@item.AutorId">
+                        @Html.DisplayFor(modelItem => item.Autor.Nome)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
                 </td>
                 <td>
                     @item.Valor.ToString("C")
@@ -46,6 +54,6 @@
                     <a class="btn btn-danger" asp-controller="Livros" asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
-                }
+        }
     </tbody>
 </table>

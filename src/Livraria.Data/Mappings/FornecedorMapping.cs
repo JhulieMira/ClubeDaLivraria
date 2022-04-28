@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necessario mapear valores, nem bool 
+namespace Livraria.Data.Mappings 
 {
     internal class FornecedorMapping : IEntityTypeConfiguration<Fornecedor>
     {
         public void Configure(EntityTypeBuilder<Fornecedor> builder)
         {
-            builder.HasKey(p => p.Id); //configurando a chave primaria sendo o id
+            builder.HasKey(p => p.Id); 
 
             builder.Property(p => p.Nome)
                 .IsRequired()
@@ -18,18 +18,14 @@ namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necess
                 .IsRequired()
                 .HasColumnType("varchar(14)");
 
-            //1 : 1 => Fornecedor : Endereço
-
-            builder.HasOne(f => f.Endereco) //um fornecedor tem um endereço, 
-                .WithOne(e => e.Fornecedor); //um endereço tem um fornecedor
-
-            // 1 : N  => Fornecedor : Produtos
+            builder.HasOne(f => f.Endereco)  
+                .WithOne(e => e.Fornecedor); 
 
             builder.HasMany(f => f.Livros)
                 .WithOne(p => p.Fornecedor)
                 .HasForeignKey(p => p.FornecedorId);
 
-            builder.ToTable("Fornecedores"); //é possivel adicionar uma virgula e em seguida o nome do schema 
+            builder.ToTable("Fornecedores");
         }
     }
 

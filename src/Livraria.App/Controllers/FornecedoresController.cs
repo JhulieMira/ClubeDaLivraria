@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Livraria.App.ViewModels;
 using Livraria.Business.Interfaces;
-using AutoMapper; //estou usando o auto mapper para transformar de model em view model
+using AutoMapper; 
 using Livraria.Business.Models;
 using Livraria.Business.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +27,7 @@ namespace Livraria.App.Controllers
         [Route("lista-de-fornecedores")]
         public async Task<IActionResult> Index()
         {
-            return View(_mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos())); //vai receber uma lista de fornecedores que sera convertido para fornecedor view model
+            return View(_mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos())); 
         }
 
         [AllowAnonymous]
@@ -51,7 +51,6 @@ namespace Livraria.App.Controllers
         [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [Route("novo-fornecedor")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FornecedorViewModel fornecedorViewModel)
         {
             if (!ModelState.IsValid) return View(fornecedorViewModel);
@@ -77,7 +76,6 @@ namespace Livraria.App.Controllers
         [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("editar-fornecedor/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, FornecedorViewModel fornecedorViewModel)
         {
             if (id != fornecedorViewModel.Id) return NotFound();
@@ -101,18 +99,14 @@ namespace Livraria.App.Controllers
         {
             var fornecedorViewModel = await ObterEnderecoFornecedor(id);
 
-            if (fornecedorViewModel == null)
-            {
-                return NotFound();
-            }
-
+            if (fornecedorViewModel == null) return NotFound();
+            
             return View(fornecedorViewModel);
         }
 
         [ClaimsAuthorize("Fornecedor", "Excluir")]
         [Route("excluir-fornecedor/{id:guid}")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var fornecedor = await ObterEnderecoFornecedor(id);
@@ -154,7 +148,6 @@ namespace Livraria.App.Controllers
         [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("atualizar-endereco-fornecedor/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AtualizarEndereco(FornecedorViewModel fornecedorViewModel)
         {
             ModelState.Remove("Nome");
@@ -162,7 +155,7 @@ namespace Livraria.App.Controllers
 
             if (!ModelState.IsValid) return PartialView("_AtualizarEndereco", fornecedorViewModel);
 
-            await _fornecedorService.AtualizarEndereco(_mapper.Map<Endereco>(fornecedorViewModel.Endereco)); //Atualizar endereco, vindo de fornecedorViewModel.Endereco
+            await _fornecedorService.AtualizarEndereco(_mapper.Map<Endereco>(fornecedorViewModel.Endereco)); 
 
             if (!OperacaoValida()) return View("_AtualizarEndereco", fornecedorViewModel);
 

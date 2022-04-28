@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Livraria.App.ViewModels;
 using Livraria.Business.Interfaces;
-using AutoMapper; //estou usando o auto mapper para transformar de model em view model
+using AutoMapper; 
 using Livraria.Business.Models;
 using Livraria.Business.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -14,14 +14,16 @@ namespace Livraria.App.Controllers
     {
         private readonly ILivroRepository _livroRepository;
         private readonly IFornecedorRepository _fornecedorRepository;
+        private readonly IAutorRepository _autorRepository;
         private readonly ILivroService _livroService;
         private readonly IMapper _mapper;
 
-        public LivrosController(ILivroRepository livroRepository, IMapper mapper, IFornecedorRepository fornecedorRepository, ILivroService livroService, INotificador notificador) : base(notificador)
+        public LivrosController(ILivroRepository livroRepository, IMapper mapper, IFornecedorRepository fornecedorRepository, IAutorRepository autorRepository, ILivroService livroService, INotificador notificador) : base(notificador)
         {
             _livroRepository = livroRepository;
             _mapper = mapper;
             _fornecedorRepository = fornecedorRepository;
+            _autorRepository = autorRepository;
             _livroService = livroService;
         }
 
@@ -29,7 +31,7 @@ namespace Livraria.App.Controllers
         [Route("lista-de-livros")]
         public async Task<IActionResult> Index()
         {
-            return View(_mapper.Map<IEnumerable<LivroViewModel>>(await _livroRepository.ObterLivrosFornecedores()));
+            return View(_mapper.Map<IEnumerable<LivroViewModel>>(await _livroRepository.ObterLivrosAutoresEFornecedores()));
         }
 
         [AllowAnonymous]
@@ -50,19 +52,18 @@ namespace Livraria.App.Controllers
         [Route("novo-livro")]
         public async Task<IActionResult> Create()
         {
-            var livroViewModel = await PopularFornecedores(new LivroViewModel());
+            var livroViewModel = await PopularFornecedoresEAutores(new LivroViewModel());
+           
             return View(livroViewModel);
         }
 
         [ClaimsAuthorize("Livro", "Adicionar")]
         [Route("novo-livro")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LivroViewModel livroViewModel)
         {
-            livroViewModel = await PopularFornecedores(livroViewModel);
+            livroViewModel = await PopularFornecedoresEAutores(livroViewModel);
 
-            //ModelState.Remove("Complemento");
 
             if (!ModelState.IsValid) return View(livroViewModel);
 
@@ -73,7 +74,7 @@ namespace Livraria.App.Controllers
                 return View(livroViewModel);
             }
 
-            livroViewModel.Imagem = imgPrefixo + livroViewModel.ImagemUpload.FileName; //passando o arquivo que foi criado no disco para o campo imagem
+            livroViewModel.Imagem = imgPrefixo + livroViewModel.ImagemUpload.FileName;
 
             await _livroService.Adicionar(_mapper.Map<Livro>(livroViewModel));
 
@@ -96,20 +97,18 @@ namespace Livraria.App.Controllers
         [ClaimsAuthorize("Livro", "Editar")]
         [Route("editar-livro/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, LivroViewModel livroViewModel)
         {
             if (id != livroViewModel.Id) return NotFound();
 
-            //livroViewModel = await ObterLivro(id); //serviria para a model voltar da mesma forma que foi populada no momento da edição
-
-            var livroAtualizacao = await ObterLivro(id); //para trabalhar em dados em cima de uma instância que não é a que veio, porque preciso ter os dados separados do que veio "via formulário" e do que realmente esta no bd
+            var livroAtualizacao = await ObterLivro(id);
             livroViewModel.Fornecedor = livroAtualizacao.Fornecedor;
-            livroViewModel.Imagem = livroAtualizacao.Imagem; //repassando os dados que estavam no banco
+            livroViewModel.Autor = livroAtualizacao.Autor;
+            livroViewModel.Imagem = livroAtualizacao.Imagem; 
 
             if (!ModelState.IsValid) return View(livroViewModel);
 
-            if(livroViewModel.ImagemUpload != null) //se for true, eu tenho uma imagem pra upar
+            if(livroViewModel.ImagemUpload != null) 
             {
                 var imgPrefixo = Guid.NewGuid() + "_";
 
@@ -118,11 +117,11 @@ namespace Livraria.App.Controllers
                     return View(livroViewModel);
                 }
 
-                livroAtualizacao.Imagem = imgPrefixo + livroViewModel.ImagemUpload.FileName; //passando o arquivo que foi criado no disco para o campo imagem
+                livroAtualizacao.Imagem = imgPrefixo + livroViewModel.ImagemUpload.FileName;
             }
 
             livroAtualizacao.Nome = livroViewModel.Nome;
-            livroAtualizacao.Descricao = livroViewModel.Descricao; //atualizando os dados do banco com os dados que chegaram de entrada com exceção do fornecedor, que, segundo a regra de negócio, não pode ser editado.
+            livroAtualizacao.Descricao = livroViewModel.Descricao; 
             livroAtualizacao.Valor = livroViewModel.Valor;
             livroAtualizacao.Ativo = livroViewModel.Ativo;
 
@@ -147,8 +146,7 @@ namespace Livraria.App.Controllers
 
         [ClaimsAuthorize("Livro", "Excluir")]
         [Route("excluir-livro/{id:guid}")]
-        [HttpPost, ActionName("Delete")] //action name usada porque nao podemos ter dois metodos com o mesmo nome e mesma assinatura. para que o metodo deleteconfirmed siga respondendo ao nome "delete" especificado
-        [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
 
@@ -167,19 +165,23 @@ namespace Livraria.App.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         private async Task<LivroViewModel> ObterLivro(Guid id)
         {
-            var produto = _mapper.Map<LivroViewModel>(await _livroRepository.ObterLivroFornecedor(id));
-            produto.Fornecedores = _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
-            return produto;
-        }
-
-        private async Task<LivroViewModel> PopularFornecedores(LivroViewModel livro)
-        {
+            var livro = _mapper.Map<LivroViewModel>(await _livroRepository.ObterLivroAutorEFornecedor(id));
             livro.Fornecedores = _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
+            livro.Autores = _mapper.Map<IEnumerable<AutorViewModel>>(await _autorRepository.ObterTodos());
             return livro;
         }
 
+        private async Task<LivroViewModel> PopularFornecedoresEAutores(LivroViewModel livro)
+        {
+            livro.Fornecedores = _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
+            livro.Autores = _mapper.Map<IEnumerable<AutorViewModel>>(await _autorRepository.ObterTodos());
+            return livro;
+        }
+
+    
         private async Task<bool> UploadArquivo(IFormFile arquivo, string imgPrefixo)
         {
             if (arquivo.Length <= 0) return false;
@@ -194,7 +196,7 @@ namespace Livraria.App.Controllers
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                await arquivo.CopyToAsync(stream); //copiando o arqquivo recebido para o disco
+                await arquivo.CopyToAsync(stream); 
             }
 
             return true;

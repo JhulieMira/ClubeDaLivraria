@@ -23,7 +23,7 @@ namespace Livraria.Business.Services
             }
         }
         protected void Notificar(string mensagem)
-        {//propagar o erro até a camada de apresentação
+        {
             _notificador.Handle(new Notificacao(mensagem));
         }
         

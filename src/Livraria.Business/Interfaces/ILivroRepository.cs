@@ -4,8 +4,9 @@ namespace Livraria.Business.Interfaces
 {
     public interface ILivroRepository : IRepository<Livro>
     {
-        Task<IEnumerable<Livro>> ObterLivrosPorFornecedor(Guid fornecedorId); //Retorna uma lista de produtos por fornecedor
-        Task<IEnumerable<Livro>> ObterLivrosFornecedores(); //Lista de produtos e fornecedores deste produto
-        Task<Livro> ObterLivroFornecedor(Guid id); //Retorna um livro e o fornecedor dele
+        Task<IEnumerable<Livro>> ObterLivrosPorFornecedor(Guid fornecedorId); 
+        Task<IEnumerable<Livro>> ObterLivrosPorAutor(Guid autorId);
+        Task<IEnumerable<Livro>> ObterLivrosAutoresEFornecedores();
+        Task<Livro> ObterLivroAutorEFornecedor(Guid id); 
     }
 }

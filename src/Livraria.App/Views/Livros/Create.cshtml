@@ -22,6 +22,24 @@
 
                 <span asp-validation-for="FornecedorId" class="text-danger"></span>
             </div>
+            <a asp-controller="Fornecedores" asp-action="Create" class="btn btn-info" type="button">
+                <span>Novo fornecedor</span>
+            </a>
+
+            <div class="form-group mt-2">
+                <label asp-for="AutorId" class="control-label">Autor</label>
+                <select asp-for="AutorId" class="form-control" asp-items="@(new SelectList(Model.Autores, "Id", "Nome"))">
+                    <option></option>
+                </select>
+
+                <span asp-validation-for="AutorId" class="text-danger"></span>
+            </div>
+            <span>
+                <a asp-controller="Autores" asp-action="Create" class="btn btn-info" type="button">
+                    <span>Novo autor</span>
+                </a>
+            </span>
+
             <div class="form-group mt-2">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -34,7 +52,7 @@
             </div>
             <div class="form-group mt-2">
                 <label asp-for="ImagemUpload" class="control-label"></label>
-                
+
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="ImagemUpload" asp-for="ImagemUpload">
                     <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImagemUpload"></label>
@@ -55,18 +73,28 @@
             </div>
             <div class="form-group mt-2">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />
-                <a class="btn btn-info" asp-action="Index">Voltar</a>
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 
-    <script>
+<script>
 
-        $("#ImagemUpload").attr("data-val", "true");
-        $("#ImagemUpload").attr("data-val-required", "Preencha o campo Imagem");
-    </script>
+    $("#ImagemUpload").attr("data-val", "true");
+    $("#ImagemUpload").attr("data-val-required", "Preencha o campo Imagem");
+</script>
 }

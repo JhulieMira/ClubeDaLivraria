@@ -1,19 +1,14 @@
 ﻿using Livraria.Business.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necessario mapear valores, nem bool 
+namespace Livraria.Data.Mappings
 {
-    public class LivroMapping : IEntityTypeConfiguration<Livro> // a classe que possui outras filhas é que configura o mapeamento
+    public class LivroMapping : IEntityTypeConfiguration<Livro> 
     {
         public void Configure(EntityTypeBuilder<Livro> builder)
         {
-            builder.HasKey(p => p.Id); //configurando a chave primaria sendo o id
+            builder.HasKey(p => p.Id); 
 
             builder.Property(p => p.Nome)
                 .IsRequired()
@@ -27,7 +22,7 @@ namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necess
                 .IsRequired()
                 .HasColumnType("varchar(200)");
 
-            builder.ToTable("Livros"); //é possivel adicionar uma virgula e em seguida o nome do schema 
+            builder.ToTable("Livros");
         }
     }
 

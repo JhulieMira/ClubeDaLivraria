@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necessario mapear valores, nem bool 
+namespace Livraria.Data.Mappings
 {
     internal class EnderecoMapping : IEntityTypeConfiguration<Endereco>
     {
         public void Configure(EntityTypeBuilder<Endereco> builder)
         {
-            builder.HasKey(p => p.Id); //configurando a chave primaria sendo o id
+            builder.HasKey(p => p.Id); 
 
             builder.Property(c => c.Logradouro)
                 .IsRequired()
@@ -37,10 +37,6 @@ namespace Livraria.Data.Mappings //mapeando para o banco de dados. Nao é necess
             builder.Property(c => c.Estado)
                 .IsRequired()
                 .HasColumnType("varchar(50)");
-
-
-           // builder.HasOne(e => e.Fornecedor) //um fornecedor tem um endereço, 
-             //  .WithOne(f => f.Endereco);
 
             builder.ToTable("Enderecos");
         }

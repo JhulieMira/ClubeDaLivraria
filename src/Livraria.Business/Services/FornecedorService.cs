@@ -17,12 +17,8 @@ namespace Livraria.Business.Services
 
         public async Task Adicionar(Fornecedor fornecedor)
         {
-            //validar o estado da entidade
-
             if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)
                 || !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
-
-            //validar se nao existe fornecedor com o mesmo documento
 
             if (_fornecedorRepository.Buscar(f => f.Documento == fornecedor.Documento).Result.Any())
             {
@@ -54,7 +50,7 @@ namespace Livraria.Business.Services
 
         public async Task Remover(Guid id)
         {
-            if(_fornecedorRepository.ObterProdutosEEnderecoFornecedor(id).Result.Livros.Any(l => l.Ativo == true)) //verificando se o fornecedor tem livros ativos
+            if(_fornecedorRepository.ObterProdutosEEnderecoFornecedor(id).Result.Livros.Any(l => l.Ativo == true))
             {
                 Notificar("Esse fornecedor possui livros cadastrados e ativos");
                 return;

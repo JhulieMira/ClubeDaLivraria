@@ -1,0 +1,45 @@
+﻿@using Livraria.App.Extensions
+@model Livraria.App.ViewModels.AutorViewModel
+
+@{
+    ViewData["Title"] = "Excluir autor";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<vc:Summary></vc:Summary>
+
+<div>
+    <h4>Esta ação será permanente!</h4>
+    <hr />
+    <dl class="row">
+        <div class="col-md-4">
+            <img src="~/imagens/@Model.Imagem" alt="@Model.Imagem" style="width: 300px; height: 428px" />
+        </div>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+    
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+    </form>
+</div>
+
+<h3>Livros do autor</h3>
+<br />
+
+<partial name="_ListaLivros.cshtml" model="@this.Model"></partial>

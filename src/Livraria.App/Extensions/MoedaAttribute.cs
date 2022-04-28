@@ -6,7 +6,7 @@ using System.Globalization;
 
 namespace Livraria.App.Extensions
 {
-    public class MoedaAttribute : ValidationAttribute //criando um atributo para trabalhar do lado server, vai funcionar na hora da validação
+    public class MoedaAttribute : ValidationAttribute 
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -23,7 +23,7 @@ namespace Livraria.App.Extensions
         }
     }
 
-    public class MoedaAttributeAdapter : AttributeAdapterBase<MoedaAttribute> //O adapter ira trabalhar no lado do client, funcionando com o js
+    public class MoedaAttributeAdapter : AttributeAdapterBase<MoedaAttribute> 
     {
         public MoedaAttributeAdapter(MoedaAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
         {
@@ -44,7 +44,7 @@ namespace Livraria.App.Extensions
         }
     }
 
-    public class MoedaValidationAttributeAdapterProvider : IValidationAttributeAdapterProvider //provider para o adapter funcionar
+    public class MoedaValidationAttributeAdapterProvider : IValidationAttributeAdapterProvider 
     {
         private readonly IValidationAttributeAdapterProvider _baseProvider = new ValidationAttributeAdapterProvider();
 

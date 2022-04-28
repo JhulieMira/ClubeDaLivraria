@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary mt-3" />
-                <a class="btn btn-info mt-3" asp-action="Index">Voltar</a>
+                <a class="btn btn-info mt-3" href="javascript:window.history.back();">Voltar</a>
             </div>
         </form>
     </div>
@@ -49,7 +49,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
+    
     <script>
         BuscaCep();
     </script>

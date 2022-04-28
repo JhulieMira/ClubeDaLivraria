@@ -1,0 +1,60 @@
+﻿@model Livraria.App.ViewModels.AutorViewModel
+
+@{
+    ViewData["Title"] = "Editar " + Model.Nome;
+}
+
+<h4 style ="padding-top: 30px">@ViewData["Title"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form enctype="multipart/form-data" method="post" asp-action="Edit" asp-route-id="@Model.Id"> 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <vc:Summary></vc:Summary>
+
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <textarea cols="40" rows="5" asp-for="Descricao" class="form-control"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="hidden"  asp-for="Imagem" class="form-control" />
+                <label>Imagem atual</label></br>
+                <img src="~/imagens/@Model.Imagem" alt="@Model.Imagem"  style="width: 70px; height: 100px" />
+            </div>
+
+             <div class="form-group mt-2">
+                <label asp-for="ImagemUpload" class="control-label"></label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="ImagemUpload" asp-for="ImagemUpload">
+                    <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImagemUpload"></label>
+                    <label style="display: none" id="img_nome"></label>
+                </div>
+                <span asp-validation-for="ImagemUpload" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary"/>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Excluir autor</a>
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h3>Livros</h3> <br/>
+
+<partial name="_ListaLivros.cshtml" model="@this.Model"></partial>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

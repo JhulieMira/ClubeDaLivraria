@@ -30,8 +30,7 @@ namespace Livraria.Business.Services
         {
             if (!ExecutarValidacao(new LivroValidation(), livro)) return;
 
-            if (_livroRepository.Buscar(l => l.Nome == livro.Nome).Result.Any()
-                && _livroRepository.Buscar(l => l.FornecedorId == livro.FornecedorId).Result.Any())
+            if (_livroRepository.Buscar(l => l.Nome == livro.Nome && l.FornecedorId != livro.FornecedorId).Result.Any())
             {
                 Notificar("Já existe um livro com o mesmo título para este fornecedor.");
                 return;

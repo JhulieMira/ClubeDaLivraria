@@ -8,7 +8,7 @@
         public Endereco Endereco { get; set; }
         public bool Ativo { get; set; }
 
-        /* EF Relations */
+
         public IEnumerable<Livro> Livros { get; set; }
 
     }

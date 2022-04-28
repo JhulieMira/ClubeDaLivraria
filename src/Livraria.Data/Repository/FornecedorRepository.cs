@@ -2,11 +2,6 @@
 using Livraria.Business.Models;
 using Livraria.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Livraria.Data.Repository
 {
