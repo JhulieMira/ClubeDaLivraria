@@ -1,0 +1,47 @@
+﻿@model Livraria.App.ViewModels.AutorViewModel
+
+@{
+    ViewData["Title"] = "Perfil do autor - " + Model.Nome;
+}
+
+<h4 style="padding-top: 30px">@ViewData["Title"]</h4>
+<hr />
+<div>
+    <h4>Informação somente leitura</h4>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/imagens/@Model.Imagem" alt="@Model.Imagem" style="width: 300px; height: 428px" />
+        </div>
+        <div class="col-md-6">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Livros" />
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Descricao)
+                </dd>
+            </dl>
+            <div>
+                <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Excluir autor</a>
+                <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+<h3>Livros</h3>
+<br />
+
+<partial name="_ListaLivros.cshtml" model="@this.Model"></partial>
