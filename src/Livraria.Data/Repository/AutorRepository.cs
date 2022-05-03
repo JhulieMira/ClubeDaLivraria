@@ -1,6 +1,7 @@
 ﻿using Livraria.Business.Interfaces;
 using Livraria.Business.Models;
 using Livraria.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.Data.Repository
 {
@@ -11,9 +12,9 @@ namespace Livraria.Data.Repository
 
         }
 
-        public virtual async Task<Autor> ObterPorId(Guid id)
+        public async Task<Autor> ObterPorId(Guid id)
         {
-            return await Db.Autores.FindAsync(id);
+            return await Db.Autores.Include(a => a.Livros).FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }

@@ -11,23 +11,21 @@ namespace Livraria.App.Controllers
     public class AutoresController : BaseController
     {
         private readonly IAutorRepository _autorRepository;
-        private readonly ILivroRepository _livroRepository;
         private readonly IAutorService _autorService;
         private readonly IMapper _mapper;
 
-        public AutoresController(IAutorRepository autorRepository, IAutorService autorService, IMapper mapper, ILivroRepository livroRepository, INotificador notificador) : base(notificador)
+        public AutoresController(IAutorRepository autorRepository, IAutorService autorService, IMapper mapper, INotificador notificador) : base(notificador)
         {
-            _livroRepository = livroRepository;
             _autorRepository = autorRepository;
             _autorService = autorService;
             _mapper = mapper;
         }
 
         [Route("lista-de-autores")]
-        public async Task<IActionResult> Index(Guid id)
+        public async Task<IActionResult> Index()
         {
             
-            return View(_mapper.Map<IEnumerable<AutorViewModel>>(await _autorRepository.ObterTodos())); //vai receber uma lista de fornecedores que sera convertido para fornecedor view model
+            return View(_mapper.Map<IEnumerable<AutorViewModel>>(await _autorRepository.ObterTodos()));
         }
 
         [Route("detalhes-autor")]
@@ -89,7 +87,6 @@ namespace Livraria.App.Controllers
 
             if (!ModelState.IsValid)
             {
-                TempData["Erro"] = "A alteração não pôde ser concluida. Verifique os campos e tente novamente";
                 return View(autorViewModel);
             }
 
@@ -100,7 +97,6 @@ namespace Livraria.App.Controllers
 
                 if (!await UploadArquivo(autorViewModel.ImagemUpload, imgPrefixo))
                 {
-                    TempData["Erro"] = "Erro no upload da imagem";
                     return View(autorViewModel);
                 }
 
@@ -163,12 +159,9 @@ namespace Livraria.App.Controllers
             return true;
         }
 
-
         public async Task<AutorViewModel> ObterAutor(Guid id)
         {
             var autor = _mapper.Map<AutorViewModel>(await _autorRepository.ObterPorId(id));
-            autor.Livros = _mapper.Map<IEnumerable<LivroViewModel>>(await _livroRepository.ObterLivrosPorAutor(id));
-
             return autor;
         }
 

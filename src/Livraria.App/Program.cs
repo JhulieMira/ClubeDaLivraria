@@ -24,10 +24,10 @@ builder.Services.AddMvcConfiguration();
 
 builder.Services.ResolveDependencies();
 
-// Gerando a APP
+
 var app = builder.Build();
 
-// Configura��o conforme os ambientes
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();

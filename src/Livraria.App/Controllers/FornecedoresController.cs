@@ -61,7 +61,7 @@ namespace Livraria.App.Controllers
             if (!OperacaoValida()) return View(fornecedorViewModel);
 
             return RedirectToAction("Index");
-        }
+        } 
 
         [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("editar-fornecedor/{id:guid}")]
